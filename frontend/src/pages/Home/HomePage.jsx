@@ -1,78 +1,45 @@
 import Carousel from "../../components/Carousel/Carousel";
 import './HomePage.css';
-
-const carousel_images =[{
-
-
-    id:1,
-    img_src:'/images/carousel/Camaro.jpg',
-    title: "A",
-    caption:'a'
-},
-{
+import { products_list } from "../../data/products";
+import { carousel_images } from "../../data/carousel_image";
+import  ProductCard  from "../../components/ProductCard/ProductCard";
 
 
-    id:2,
-    img_src:'/images/carousel/chevelle.jpg',
-    title: "A",
-    caption:'b'
-},{
 
 
-    id:1,
-    img_src:'/images/carousel/Lamborgini.jpg',
-    title: "A",
-    caption:'c'
-},{
+function HomePage() {
+    return (<>
+        <div className="container h-100">
+            <div className="row home_carousel">
+                <div className="col d-flex flex-column h-100">
+                    {/* <Carousel/> */}
+                    <Carousel images={carousel_images} />
+                </div>
+                <div className="col bg-secondary h-100">
+                    <Carousel images={products_list} />
+                </div>
 
+                <div className="cards row row-cols-1 row-cols-md-4 g-4">
+                    {
+                        products_list.map((product, index) => (
+                            <ProductCard product={product} key={product.id} />
+                        )
+                        )
+                    }
+                </div>
 
-    id:1,
-    img_src:'/images/carousel/MP4.jpg',
-    title: "A",
-    caption:'d'
-}
-]
-
-const products_list=[
-    {
-        id:1,
-        title:"Engine",
-        price:12250,
-        img_src:'images/products/Engine.jpg'
-    },{
-        id:2,
-        title:"Gasket",
-        price:780,
-        img_src:'images/products/gasket.jpg'
-    },
-    {
-        id:3,
-        title:"filter",
-        price:450,
-        img_src:'images/products/filter.jpg'
-    },
-    {
-        id:4,
-        title:"piston",
-        price:3500,
-        img_src:'images/products/piston.jpg'
-    }
-
-]
-
-function HomePage(){
-    return(<>
-    <div className="container h-100">
-        <div className="row home_carousel">
-            <div className="col d-flex flex-column h-100">
-            {/* <Carousel/> */}
-            <Carousel images = {carousel_images} />
-            </div>
-            <div className="col bg-secondary h-100">
-                
+                {/* <div class="card-group">
+  <div class="card">
+    <img src="/images/products/Engine.jpg" class="card-img-top" alt="..."/>
+    <div class="card-body">
+      <h5 class="card-title">Card title</h5>
+      <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+      <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p>
+    </div>
+  </div>
+  </div> */}
             </div>
         </div>
-    </div>
     </>
     )
 }

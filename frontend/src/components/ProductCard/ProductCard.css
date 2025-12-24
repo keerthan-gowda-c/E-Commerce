@@ -1,0 +1,15 @@
+.card{
+    /* border: 1px solid; */
+    /* padding: 5px; */
+    height: 500px;
+}
+
+img{
+    object-fit: fit;
+    height: 35%;
+}
+.card-title {
+        height: 20px;    
+    }
+
+
